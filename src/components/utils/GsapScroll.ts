@@ -5,6 +5,10 @@ export function setCharTimeline(
   character: THREE.Object3D<THREE.Object3DEventMap> | null,
   camera: THREE.PerspectiveCamera
 ) {
+  if (!document.querySelector(".landing-section") || 
+      !document.querySelector(".about-section") || 
+      !document.querySelector(".whatIDO")) return;
+
   let intensity: number = 0;
   setInterval(() => {
     intensity = Math.random();
@@ -133,6 +137,7 @@ export function setCharTimeline(
 }
 
 export function setAllTimeline() {
+  if (!document.querySelector(".career-section")) return;
   const careerTimeline = gsap.timeline({
     scrollTrigger: {
       trigger: ".career-section",

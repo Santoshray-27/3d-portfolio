@@ -10,18 +10,27 @@ export let smoother: ScrollSmoother;
 
 const Navbar = () => {
   useEffect(() => {
-    smoother = ScrollSmoother.create({
-      wrapper: "#smooth-wrapper",
-      content: "#smooth-content",
-      smooth: 1.7,
-      speed: 1.7,
-      effects: true,
-      autoResize: true,
-      ignoreMobileResize: true,
-    });
+    if (!smoother) {
+      const wrapper = document.getElementById("smooth-wrapper");
+      const content = document.getElementById("smooth-content");
+      
+      if (wrapper && content) {
+        smoother = ScrollSmoother.create({
+          wrapper: "#smooth-wrapper",
+          content: "#smooth-content",
+          smooth: 1.7,
+          speed: 1.7,
+          effects: true,
+          autoResize: true,
+          ignoreMobileResize: true,
+        });
 
-    smoother.scrollTop(0);
-    smoother.paused(true);
+        smoother.scrollTop(0);
+        smoother.paused(true);
+      }
+    } else {
+      smoother.refresh();
+    }
 
     let links = document.querySelectorAll(".header ul a");
     links.forEach((elem) => {
@@ -43,16 +52,16 @@ const Navbar = () => {
     <>
       <div className="header">
         <a href="/#" className="navbar-title" data-cursor="disable">
-          AM
+          SR
         </a>
         <a
-          href="https://www.linkedin.com/in/akashrmalhotra/"
+          href="https://www.linkedin.com/in/iamsantoshray/"
           className="navbar-connect"
           data-cursor="disable"
           target="_blank"
           rel="noreferrer"
         >
-          linkedin.com/in/akashrmalhotra
+          linkedin.com/in/iamsantoshray
         </a>
         <ul>
           <li>

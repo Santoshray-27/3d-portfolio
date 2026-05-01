@@ -37,7 +37,7 @@ export default function setSplitText() {
       {
         autoAlpha: 1,
         scrollTrigger: {
-          trigger: para.parentElement?.parentElement,
+          trigger: para,
           toggleActions: ToggleAction,
           start: TriggerStart,
         },
@@ -63,7 +63,7 @@ export default function setSplitText() {
       {
         autoAlpha: 1,
         scrollTrigger: {
-          trigger: title.parentElement?.parentElement,
+          trigger: title,
           toggleActions: ToggleAction,
           start: TriggerStart,
         },
@@ -75,6 +75,4 @@ export default function setSplitText() {
       }
     );
   });
-
-  ScrollTrigger.addEventListener("refresh", () => setSplitText());
 }

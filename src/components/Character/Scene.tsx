@@ -11,7 +11,7 @@ import {
   handleTouchMove,
 } from "./utils/mouseUtils";
 import setAnimations from "./utils/animationUtils";
-import { setProgress } from "../Loading";
+import { setProgress } from "../utils/loadingUtils";
 
 const Scene = () => {
   const canvasDiv = useRef<HTMLDivElement | null>(null);
@@ -29,7 +29,8 @@ const Scene = () => {
 
       const renderer = new THREE.WebGLRenderer({
         alpha: true,
-        antialias: true,
+        antialias: false,
+        powerPreference: "high-performance",
       });
       renderer.setSize(container.width, container.height);
       renderer.setPixelRatio(window.devicePixelRatio);
